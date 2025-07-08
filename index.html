@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect with Aditya C - SRCC Placement Cell</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            /* FIXED: Updated to new Google Drive thumbnail format */
+            background-image: url('https://drive.google.com/thumbnail?id=1p5vYVJjF9aeJVoVzQhHdq5oDHmTPTOyF&sz=w1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(27, 48, 85, 0.15);
+            backdrop-filter: blur(3px);
+            z-index: 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            /* FIXED: Updated to new Google Drive thumbnail format */
+            background: url('https://drive.google.com/thumbnail?id=1xTV5tEgt0g6rWt9nIC7yzu6cZ0KfhEqb&sz=w400') center/cover;
+            margin: 0 auto 30px;
+            border: 4px solid #1b3055;
+            box-shadow: 0 12px 30px rgba(27, 48, 85, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1b3055;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(27, 48, 85, 0.1);
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .title {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .college {
+            font-size: 14px;
+            color: #1b3055;
+            font-weight: 600;
+            margin-bottom: 35px;
+            padding: 8px 16px;
+            background: rgba(27, 48, 85, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .contact-button {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #1b3055 0%, #2c4a7a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(27, 48, 85, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .contact-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .contact-button:hover::before {
+            left: 100%;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(27, 48, 85, 0.4);
+            background: linear-gradient(135deg, #2c4a7a 0%, #1b3055 100%);
+        }
+
+        .contact-button i {
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .linkedin {
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+        }
+
+        .linkedin:hover {
+            background: linear-gradient(135deg, #005885 0%, #0077b5 100%);
+        }
+
+        .phone {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        }
+
+        .phone:hover {
+            background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);
+        }
+
+        .save-contact {
+            background: linear-gradient(135deg, #1b3055 0%, #2c4a7a 100%);
+            margin-top: 20px;
+        }
+
+        .save-contact:hover {
+            background: linear-gradient(135deg, #2c4a7a 0%, #1b3055 100%);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(27, 48, 85, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #1b3055;
+            border: 2px solid rgba(27, 48, 85, 0.2);
+            box-shadow: 0 6px 15px rgba(27, 48, 85, 0.2);
+        }
+
+        .social-icon:hover {
+            background: #1b3055;
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(27, 48, 85, 0.3);
+        }
+
+        .social-icon i {
+            font-size: 22px;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(27, 48, 85, 0.3), transparent);
+            margin: 25px 0;
+            border-radius: 1px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(27, 48, 85, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-direction: column;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            color: #1b3055;
+            font-weight: 600;
+            margin: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .footer-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            /* FIXED: Updated to new Google Drive thumbnail format */
+            background: url('https://drive.google.com/thumbnail?id=1ycd1pq5pB-jYgwYd_oU5YpIGCcIA-a46&sz=w200') center/contain no-repeat;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .name {
+                font-size: 26px;
+            }
+            
+            .contact-button {
+                padding: 14px 16px;
+                font-size: 15px;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .social-links {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card > * {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .card > *:nth-child(1) { animation-delay: 0.1s; }
+        .card > *:nth-child(2) { animation-delay: 0.2s; }
+        .card > *:nth-child(3) { animation-delay: 0.3s; }
+        .card > *:nth-child(4) { animation-delay: 0.4s; }
+
+        /* Fallback background in case image doesn't load */
+        .fallback-bg {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="card">
+        <div class="profile-image"></div>
+        
+        <div class="name">Aditya C</div>
+        <div class="title">Senior Coordinator</div>
+        <div class="college">The Placement Cell, SRCC</div>
+        
+        <a href="https://www.linkedin.com/in/aditya-c-083416253/" target="_blank" class="contact-button linkedin">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+        </a>
+        
+        <a href="https://wa.me/918921615247" target="_blank" class="contact-button phone">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+        </a>
+        
+        <div class="divider"></div>
+        
+        <button onclick="saveContact()" class="contact-button save-contact">
+            <i class="fas fa-download"></i>
+            Save Contact to Phone
+        </button>
+        
+        <div class="social-links">
+            <a href="mailto:placementcell@srcc.du.ac.in" class="social-icon" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/pcsrcc/" target="_blank" class="social-icon" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-logo"></div>
+                <div class="footer-text">Shri Ram College of Commerce</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveContact() {
+            // Create vCard data with proper phone number format
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Aditya C || The Placement Cell, SRCC
+ORG:Shri Ram College of Commerce
+TITLE:Senior Coordinator, The Placement Cell, SRCC
+TEL;TYPE=CELL:+91-89216-15247
+TEL;TYPE=WORK:+91-89216-15247
+EMAIL;TYPE=WORK:placementcell@srcc.du.ac.in
+URL:https://www.linkedin.com/in/aditya-c-083416253/
+NOTE:Senior Coordinator at The Placement Cell, SRCC
+END:VCARD`;
+
+            // Create blob and download
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Aditya_C_SRCC_Placement_Cell.vcf';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            // Show success message
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i> Contact Saved Successfully!';
+            button.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = 'linear-gradient(135deg, #1b3055 0%, #2c4a7a 100%)';
+            }, 2500);
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.querySelector('.card').style.opacity = '1';
+        });
+
+        // Handle image loading error with fallback
+        window.addEventListener('load', function() {
+            const img = new Image();
+            img.onload = function() {
+                console.log('Background image loaded successfully');
+            };
+            img.onerror = function() {
+                document.body.classList.add('fallback-bg');
+                console.log('Background image failed to load, using fallback');
+            };
+            // Updated with the new Google Drive thumbnail format
+            img.src = 'https://drive.google.com/thumbnail?id=1p5vYVJjF9aeJVoVzQhHdq5oDHmTPTOyF&sz=w1920';
+        });
+    </script>
+</body>
+</html>
